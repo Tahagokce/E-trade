@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Abc.MvcWebUI.Entity.GetCategoryViewModel>
+@{
+    var selectedCategory = Url.RequestContext.RouteData.Values["id"];
+    if (User.IsInRole("admin"))
+    {
+        Layout = "../Shared/_AdminLayout.cshtml";
+    }
+}
+
+
+<div class="container col-md-3">
+
+    
+    
+    @*buraya alldayken renkli yanması için şart koymamız gerekli nasıl yapıcaz?*@
+    <ul class="list-group">
+       
+        <a href="/Home/List">
+            <li class="list-group-item d-flex justify-content-between align-items-center ">
+                Tüm ürünler
+                <span class="badge bg-primary rounded-pill">@ViewBag.AllCount</span>
+            </li>
+        </a>
+        @foreach (var item in Model)
+        {
+
+            if (selectedCategory != null)
+            {
+
+                if (item.Id == int.Parse(selectedCategory.ToString()))
+                {
+                    <a href="/Home/List/@item.Id">
+                        <li class="list-group-item d-flex justify-content-between align-items-center active">
+                            @item.Name
+                            <span class="badge bg-primary rounded-pill">@item.Products.Count</span>
+                        </li>
+                    </a>
+                }
+                else
+                {
+
+                    <a href="/Home/List/@item.Id">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            @item.Name
+                            <span class="badge bg-primary rounded-pill">@item.Products.Count</span>
+                        </li>
+                    </a>
+
+                }
+
+
+
+
+
+
+            }
+            else
+            {
+
+
+                <a href="/Home/List/@item.Id">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        @item.Name
+                        <span class="badge bg-primary rounded-pill">@item.Products.Count</span>
+                    </li>
+                </a>
+
+
+            }
+        }
+    </ul>
+</div>

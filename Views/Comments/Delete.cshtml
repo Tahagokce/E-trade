@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+
+
+<div id="product-details" class="container pb-5">
+
+    <h3 style="color: red; text-align: center"><strong> Yorumu silmek istediğinize eminmisiniz?</strong> </h3>
+
+    <hr class="m-5" />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div style="margin-left: 480px">
+            <input type="submit" value="Sil" class="btn btn-danger" />
+            @Html.ActionLink("Ürün Listesi", "Index", null, new { @class = "btn btn-warning" })
+        </div>
+    }
+
+    <hr class="m-5" />
+</div>

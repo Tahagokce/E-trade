@@ -1,0 +1,44 @@
+﻿@model Abc.MvcWebUI.Entity.ViewModel.CommentViewModel
+@{
+    Layout = null;
+}
+
+
+
+    @using (Html.BeginForm())
+    {
+
+
+
+        @Html.AntiForgeryToken()
+
+
+        <input name="ProductId" type="hidden" value="@Url.RequestContext.RouteData.Values["id"]" />
+
+
+
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.Description, new { @class = "form-control ", @value = "yorum" })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+
+        </div>
+        <div class="form-group mt-2">
+            @Html.TextBoxFor(model => model.Star, new { @value = "1-5 arasında sayı giriniz", @class = "form-control " })
+            @Html.ValidationMessageFor(model => model.Star, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group mt-2">
+            <input type="submit" value="Yorum Yap" class="btn btn-primary" />
+
+        </div>
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    }
+
+
+
+   

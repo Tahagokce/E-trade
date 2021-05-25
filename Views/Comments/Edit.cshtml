@@ -1,0 +1,87 @@
+﻿@model Abc.MvcWebUI.Entity.Comment
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+
+
+<div class="container">
+    <h2>Yorum Onay</h2>
+
+
+
+    <table class="table table-bordered tab-content table-striped">
+
+        <tr>
+            <th>@Html.DisplayNameFor(Model => Model.Id)</th>
+            <th>@Html.DisplayNameFor(Model => Model.Product.Name)</th>
+            <th>@Html.DisplayNameFor(Model => Model.UserName)</th>
+            <th>@Html.DisplayNameFor(Model => Model.Description)</th>
+            <th>@Html.DisplayNameFor(Model => Model.Star)</th>
+            <th>@Html.DisplayNameFor(Model => Model.CreateTime)</th>
+            <th>@Html.DisplayNameFor(Model => Model.ProductId)</th>
+            <th>@Html.DisplayNameFor(Model => Model.IsApproved)</th>
+        </tr>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@ViewBag.Name</td>
+            <td>@Model.UserName</td>
+            <td>@Model.Description
+            </td>
+            <td>@Model.Star</td>
+            <td>@Model.CreateTime</td>
+            <td>@Model.ProductId</td>
+            <td>@Model.IsApproved</td>
+        </tr>
+
+    </table>
+    @*<input name="UserId" type="hidden" value="@Model.UserId" />
+    <input name="Id" type="hidden" value="@Model.Id" />
+    <input name="UserName" type="hidden" value="@Model.UserName" />
+    <input name="Description" type="hidden" value="@Model.Description" />
+    <input name="Star" type="hidden" value="@Model.Star" />
+    <input name="CreateTime" type="hidden" value="@Model.CreateTime" />
+    <input name="ProductId" type="hidden" value="@Model.ProductId" />
+    <input name="Product.Name" type="hidden" value="@Model.Product.Name" />*@
+
+
+    <div class="container">
+        @using (Html.BeginForm("Edit","Comments",FormMethod.Post))
+        {
+
+            @Html.AntiForgeryToken()
+
+
+            <input name="Id" type="hidden" value="@Model.Id" />
+
+
+
+
+
+            <h4>Yorum Eklensin mi?</h4>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsApproved, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.IsApproved)
+                        @Html.ValidationMessageFor(model => model.IsApproved, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div> 
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Kaydet" class="btn btn-warning" />
+                </div>
+            </div>
+
+
+        }
+        @Html.ActionLink("Sil", "Delete", new { id = Model.Id }, new { @class = "btn btn-success btn-sm" })
+
+
+    </div>
+
+</div>

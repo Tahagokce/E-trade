@@ -1,0 +1,28 @@
+﻿@using Abc.MvcWebUI.Entity;
+@model IEnumerable<ProductViewModel>
+@{
+    if (User.IsInRole("admin"))
+    {
+        Layout = "../Shared/_AdminLayout.cshtml";
+    }
+}
+<div class="container pb-5">
+
+    
+    <div class="row ">
+
+        @Html.Action("GetCategories", "Home")
+
+
+        <div class="col-md-9">
+
+            <div class="row ">
+
+                @Html.Partial("_List", Model)
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

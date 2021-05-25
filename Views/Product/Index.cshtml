@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Abc.MvcWebUI.Entity.ProductViewModel>
+
+@{
+    ViewBag.Title = "Index";
+
+    Layout = "../Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <h2>Ürünler</h2>
+    <div class="row  flex-lg-row-reverse">
+        <p>
+            @Html.ActionLink("Yeni Ürün Ekle", "Create", null, new { @class = "btn btn-primary" })
+        </p>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.İmage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Stock)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.İmage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsHome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsApproved)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        <img src="~/theme/img/@item.İmage" alt="resim" width="50px" height="50px" />
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.İmage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsHome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsApproved)
+                    </td>
+                    <td>
+
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-success btn-sm" })
+                        @Html.ActionLink("Detay", "Details", new { id = item.Id }, new { @class = "btn btn-success btn-sm" })
+
+
+                        @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-success btn-sm" })
+
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

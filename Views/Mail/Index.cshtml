@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+<div class="container">
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        @Html.AntiForgeryToken()
+
+        @*<div class="form-group">
+            @Html.Label("", "gönderen@gmail.com", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.TextBox("sender", "birisi@example.com")
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("", "şifre", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.Password("password", "Password")
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("", "gönderen adı", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.TextBox("displayName", "gönderici ismi")
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("", "alıcı mail", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.TextBox("receiver", "alıcı@gmail.com")
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("", "konu başlığı", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.TextBox("subject", "konu başlığı")
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("", "mail içerik", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.TextArea("body", "Göndermek istediğiniz içeriği buraya yazınız")
+                </div>
+            </div>
+        </div>*@
+
+
+
+    
+
+
+
+        <div class="form-group">
+            @Html.Label("", "konu ", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.TextBox("konu")
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("", "mesaj ", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.TextBox("mesaj")
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("", "eposta", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.TextBox("eposta")
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Gönder" class="btn btn-success" />
+            </div>
+        </div>
+    }
+</div>

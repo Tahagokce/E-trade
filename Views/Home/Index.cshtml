@@ -1,0 +1,30 @@
+﻿@using Abc.MvcWebUI.Entity;
+@model IEnumerable<ProductViewModel>
+@{
+    if (User.IsInRole("admin"))
+    {
+        Layout = "../Shared/_AdminLayout.cshtml";
+    }
+}
+
+<hr class="m-0" />
+
+
+<div class="jumbotron">
+    <div class="a container">
+        <div class="text-center p-5 mb-4  )">
+            <div class="container-fluid py-5">
+                <h1 class="display-4 ">Custom jumbotron</h1>
+                <p class="lead">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-sm mt-5 ">
+
+
+    @Html.Partial("_List", Model)
+
+
+</div>

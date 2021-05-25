@@ -1,0 +1,51 @@
+﻿@using Abc.MvcWebUI.Entity;
+@model IEnumerable<ProductViewModel>
+
+
+<div class="container">
+    <div class="container">
+
+
+
+        <div class="col">
+
+            <div class="row">
+
+                @foreach (var item in Model)
+
+                {
+
+                    <div class="col-md-4 ">
+                        <div class="card-group">
+                            <div class="card mt-4">
+
+                                
+                            <div class="container col-md-auto">
+
+                                <img style="width: 200px; height: 300px" src="~/theme/img/@item.İmage" class="card-img-top" alt="@item.Name">
+                            </div>
+                               
+                            <div class="card-body">
+                                <a href="/Home/Details/@item.Id">
+                                    <h5 class="card-title">@item.Name</h5>
+                                </a>
+                                <p class="card-text">@item.Description</p>
+                            </div>
+                                
+                                    <div class="card-footer">
+                                        <small class="text-muted">@item.Price <i class="fas fa-lira-sign"></i> </small>
+
+                                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
